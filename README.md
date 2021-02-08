@@ -1,4 +1,4 @@
-# custom-js-framework
+# Custom Js Framework
 Vanilla js custom framework.
 - Routing using history api.
 - Custom elements to create custom element tags.
