@@ -5,5 +5,5 @@ Vanilla js custom framework.
 - Dom api use to create dom element
 - And many more methods to create simple custom js framework
 
-# Online Demo of above SPA code.
+# Demo Link.
 https://guptaviv1.github.io/custom-js-framework/
