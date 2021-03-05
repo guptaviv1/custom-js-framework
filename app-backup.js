@@ -70,10 +70,7 @@ const ServerList = {
     hEl.innerText = 'Existing servers'
     divEl.append(hEl);
     const ulEl = createElement("ul");
-    divEl.append(ulEl);    
-    const subNavEl = createElement("div");
-    subNavEl.innerHTML = '<nav-bar></nav-bar>';
-    divEl.appned(subNavEl);
+    divEl.append(ulEl);
     return divEl.outerHTML;
   },
   after_render: () => {
@@ -140,7 +137,6 @@ const addClickEventOnNav = () => {
   })
 }
 //Create custom element
-//lib
 const customTag = (tagName,fn) => {
   document.createElement(tagName);
   const tagInstances = document.getElementsByTagName(tagName);
@@ -160,14 +156,3 @@ window.onload = () => {
   onRoute(defaultRoute);
   addClickEventOnNav();
 }
-
-//app.jss
-const Components = [
-    { name: "nav-bar", route: {}, render: ()=>{}, controller: ()=>{}, action: ()=>{} }
-]
-const Routes = {
-    "nav-bar" : {name: "nav-bar", route: {}},
-}
-//processComponent(Components);
-//lib
-//const processComponents = (Components) => Components.forEach((item)=>{customTag(item.name,item.render, item.action)});
