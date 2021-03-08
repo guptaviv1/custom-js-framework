@@ -1,20 +1,28 @@
+//python3 -m http.server 3000
 (function ($w) {
     const lib = (() => {
-        const customTag = (tagName, fn) => {
-            document.createElement(tagName);
-            const tagInstances = document.getElementsByTagName(tagName);
-            for (let i = 0; i < tagInstances.length; i++) {
-                fn(tagInstances[i]);
+        const renderTag = (element, cp) => {
+            if (element) {
+                element.innerHTML = cp.component.render();
             }
         }
-        const processComponents = (Components) => Components.forEach((item) => { customTag(item.name, item.render, item.action) });
+        const customTag = (cp) => {
+            const tagName = cp.name;
+            const tagInstances = document.getElementsByTagName(tagName);
+            for (let i = 0; i < tagInstances.length; i++) {
+                renderTag(tagInstances[i],cp);
+            }
+        }
+        const processComponents = (Components) => Components.forEach((cp) => { 
+            customTag(cp); 
+        });
 
         return {
             "processComponents" : processComponents
         };
     })();
 
-    //setting window
+    //setting window, python3 -m http.server 3000
     $w.lib = lib;
 
 })(window);

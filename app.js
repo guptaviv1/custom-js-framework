@@ -141,49 +141,21 @@ const addClickEventOnNav = () => {
         })
     })
 }
-//Create custom element
-//lib
-// const customTag = (tagName,fn) => {
-//   document.createElement(tagName);
-//   const tagInstances = document.getElementsByTagName(tagName);
-//   for ( let i = 0; i < tagInstances.length; i++) {
-//     fn(tagInstances[i]);
-//   }
-// }
-
-const navRender = (element) => {
-    if (element) {
-        element.innerHTML = NavBarComponent.render();
-    }
-}
-// window.onload = () => {
-//   customTag("nav-bar", navRender);
-//   const defaultRoute = routes[0].path;
-//   onRoute(defaultRoute);
-//   addClickEventOnNav();
-// }
 
 window.onload = () => {
     const Components = [
-        { name: "nav-bar", route: {}, render: navRender, controller: () => {}, action: () => { } }
-    ]
-    const Routes = {
-        "nav-bar": { name: "nav-bar", route: {} },
-    }
+        { name: "nav-bar", route: {}, component: NavBarComponent,  controller: () => {}, action: addClickEventOnNav },
+        { name: "nav-bar-container", route: {}, component: new Function(),  controller: () => {}, action: addClickEventOnNav },
+        { name: "server-form-component", route: { path: "/create-server"}, component: ServerFormCompnent,  controller: () => {}, action: new Function()},
+        { name: "server-list", route: { path: "/view-servers" }, component: ServerList,  controller: () => {}, action: new Function() }
+    ];
+    const Routes = [
+        { path: "/create-server", component: ServerFormCompnent },
+        { path: "/view-servers", component: ServerList }
+    ];
+    //lib.render('root', )
     lib.processComponents(Components);
-    //   customTag("nav-bar", navRender);
-    const defaultRoute = routes[0].path;
+    const defaultRoute = Routes[0].path;
     onRoute(defaultRoute);
     addClickEventOnNav();
 }
-
-//app.jss
-// const Components = [
-//     { name: "nav-bar", route: {}, render: ()=>{}, controller: ()=>{}, action: ()=>{} }
-// ]
-// const Routes = {
-//     "nav-bar" : {name: "nav-bar", route: {}},
-// }
-//processComponent(Components);
-//lib
-//const processComponents = (Components) => Components.forEach((item)=>{customTag(item.name,item.render, item.action)});
