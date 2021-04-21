@@ -14,7 +14,9 @@
             }
         }
         const processComponents = (Components) => Components.forEach((cp) => { 
-            customTag(cp); 
+            customTag(cp);
+            cp.controller();
+            cp.action();
         });
 
         return {
@@ -22,7 +24,7 @@
         };
     })();
 
-    //setting window, python3 -m http.server 3000
+    //setting window,
     $w.lib = lib;
 
 })(window);

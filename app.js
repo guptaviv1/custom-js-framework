@@ -145,17 +145,15 @@ const addClickEventOnNav = () => {
 window.onload = () => {
     const Components = [
         { name: "nav-bar", route: {}, component: NavBarComponent,  controller: () => {}, action: addClickEventOnNav },
-        { name: "nav-bar-container", route: {}, component: new Function(),  controller: () => {}, action: addClickEventOnNav },
-        { name: "server-form-component", route: { path: "/create-server"}, component: ServerFormCompnent,  controller: () => {}, action: new Function()},
-        { name: "server-list", route: { path: "/view-servers" }, component: ServerList,  controller: () => {}, action: new Function() }
+        { name: "server-form-component", route: { path: "/create-server"}, component: ServerFormCompnent, controller: () => {}, action: () => {}},
+        { name: "server-list", route: { path: "/view-servers" }, component: ServerList, controller: () => {}, action:() => {} }
     ];
     const Routes = [
         { path: "/create-server", component: ServerFormCompnent },
         { path: "/view-servers", component: ServerList }
     ];
-    //lib.render('root', )
     lib.processComponents(Components);
     const defaultRoute = Routes[0].path;
     onRoute(defaultRoute);
-    addClickEventOnNav();
+    // addClickEventOnNav();
 }
