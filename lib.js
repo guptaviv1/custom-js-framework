@@ -1,4 +1,3 @@
-//python3 -m http.server 3000
 (function ($w) {
     const lib = (() => {
         const renderTag = (element, cp) => {

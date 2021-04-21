@@ -70,12 +70,13 @@ const ServerList = {
         hEl.innerText = 'Existing servers'
         divEl.append(hEl);
         const ulEl = createElement("ul");
-        divEl.append(ulEl);
-        //added by rahul    
+        divEl.append(ulEl);    
+        /*@Doc
+        **@Thinking to insert child component, leaving this for future development
         const subNavEl = createElement("div");
         subNavEl.innerHTML = '<nav-bar></nav-bar>';
         divEl.append(subNavEl);
-        //endend by rahul
+        */
         return divEl.outerHTML;
     },
     after_render: () => {
@@ -126,12 +127,6 @@ const onRoute = (pathname) => {
     component.after_render();
 }
 
-// Window load configuration
-
-window.onpopstate = () => {
-    onRoute(window.location.pathname);
-}
-
 const addClickEventOnNav = () => {
     const nav = document.querySelectorAll("a");
     nav.forEach((item) => {
@@ -141,6 +136,12 @@ const addClickEventOnNav = () => {
         })
     })
 }
+
+window.onpopstate = () => {
+    onRoute(window.location.pathname);
+}
+
+// Window load configuration
 
 window.onload = () => {
     const Components = [
