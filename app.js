@@ -155,5 +155,4 @@ window.onload = () => {
     lib.processComponents(Components);
     const defaultRoute = Routes[0].path;
     onRoute(defaultRoute);
-    // addClickEventOnNav();
 }
